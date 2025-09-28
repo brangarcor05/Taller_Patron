@@ -1,3 +1,4 @@
+package abstractfactory;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +7,7 @@ public class Materia {
     private int cuposTotales;
     private int cuposDisponibles;
     private String horario;
-    private List<Estudiante> inscritos;
+    private List<EstudianteUnificado> inscritos;
 
     public Materia(String nombre, int cuposTotales, String horario) {
         this.nombre = nombre;
@@ -48,7 +49,7 @@ public class Materia {
         this.horario = horario;
     }
 
-    public List<Estudiante> getInscritos() {
+    public List<EstudianteUnificado> getInscritos() {
         return inscritos;
     }
 
@@ -57,7 +58,7 @@ public class Materia {
         return cuposDisponibles > 0;
     }
 
-    public boolean inscribirEstudiante(Estudiante e) {
+    public boolean inscribirEstudiante(EstudianteUnificado e) {
         if (hayCupos() && !inscritos.contains(e)) {
             inscritos.add(e);
             cuposDisponibles--;
@@ -76,7 +77,7 @@ public class Materia {
         System.out.println("  No hay estudiantes inscritos.");
     } else {
         System.out.println("  Estudiantes inscritos:");
-        for (Estudiante e : inscritos) {
+        for (EstudianteUnificado e : inscritos) {
             System.out.println("   - " + e.getNombre());
         }
     }
